@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pandemic simulation</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="simulation">
+        <canvas width="800px" height="800px"></canvas>
+        <fieldset id="control-panel">
+            <legend>Configuration</legend>
+            <b>Basic options</b><br>
+            <label for="count">Human count: </label>
+            <input type="number" value="1000" id="humanCount">
+            <br>
+            <label for="count">Human radius: </label>
+            <input type="number" value="2" id="humanRadius">
+            <br>
+            <label for="count">Bounce variance: </label>
+            <input type="number" value="2" id="bounceVariance">
+            <br>
+            <label for="count">Playback speed: </label>
+            <input type="range" value="0.5" id="humanSpeed" min="1" max="10" value="1">
+            <span id="humanSpeedDisplay">1</span>
+            <br>
+            <label for="count">Minimum death time: </label>
+            <input type="number" value="2000" id="minDeathTime">
+            <br>
+            <label for="count">Maximum death time: </label>
+            <input type="number" value="10000" id="maxDeathTime">
+            <br>
+            <br>
+            <b>Recovery options</b><br>
+            <label for="count">Can recover: </label>
+            <input type="checkbox" id="canRecover" checked>
+            <br>
+            <label for="count">Recovery chance: </label>
+            <input type="number" value="10" min="0" max="100" id="recoveryChance" style="width:40px;" oninput="if(parseInt(this.value) > this.max) this.value = this.max; if(parseInt(this.value) < this.min) this.value = this.min">%
+            <br>
+            <label for="count">Recovered can get infected: </label>
+            <input type="checkbox" id="canGetInfectAfterRecovered" checked>
+            <br>
+            <label for="count">Recovery chance from infection after recovery: </label>
+            <input type="number" value="10" min="0" max="100" id="recoveryChanceAfterRecovery" style="width:40px;" oninput="if(parseInt(this.value) > this.max) this.value = this.max; if(parseInt(this.value) < this.min) this.value = this.min">%
+            <br>
+            <br>
+            <b>Simulation options</b><br>
+            <label for="count">Display fps cap: </label>
+            <input type="number" value="60" style="width:30px;" id="display-cap">
+            <br>
+            <label for="count">Physics fps cap: </label>
+            <input type="number" value="60" style="width:30px;" id="physics-cap">
+            <br>
+            <br>
+            <button id="restart" onclick="initSimulation()">Restart Simulation</button>
+        </fieldset>
+        <div id="statistics">
+            <span id="normal" style="color: green;">Normal: 1000</span>
+            <br>
+            <span id="infected" style="color: red;">Infected: 1</span>
+            <br>
+            <span id="dead" style="color: black;">Dead: 0</span>
+            <br>
+            <span id="recovered" style="color: purple;">Recovered: 0</span>
+        </div>
+    </div>
+
+
+
+    <script src="./init.js"></script>
+    <script src="./eventListeners.js"></script>
+    <script src="./human.js"></script>
+    <script src="./fpsdisplay.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

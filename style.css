@@ -1,0 +1,23 @@
+body{
+    margin: 0px
+}
+canvas{
+    border-width: 1px;
+    border-style: solid;
+}
+#control-panel{
+    border: "1px black dashed";
+    width: 400px;
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    margin-left: 10px;
+}
+#simulation{
+    display: inline-block;
+}
+#statistics{
+    display: inline-block;
+    position: relative;
+    margin-left: 10px;
+}
